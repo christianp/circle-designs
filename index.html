@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css"></link>
+	</head>
+	<body>
+		<div class="controls">
+			<label>
+				Blend mode
+				<select id="blend_mode">
+					<option value=" normal">normal</option>
+					<option value="multiply">multiply</multiply>
+					<option value="screen">screen</option>
+					<option value="overlay">overlay</option>
+					<option value="darken">darken</option>
+					<option value="lighten">lighten</option>
+					<option value="color-dodge">color-dodge</option>
+					<option value="color-burn">color-burn</option>
+					<option value="hard-light">hard-light</option>
+					<option value="soft-light">soft-light</option>
+					<option value="difference">difference</option>
+					<option value="exclusion">exclusion</option>
+					<option value="hue">hue</option>
+					<option value="saturation">saturation</option>
+					<option value="color">color</option>
+					<option value="luminosity">luminosity</option>
+				</select>
+			</label>
+			<label>
+				Probability of splitting
+				<input type="range" min="0" max="1" step="0.05" id="prob_descend" value="0.4">
+			</label>
+			<label>
+				Maximum depth
+				<input type="range" min="0" max="10" id="max_depth" value="8">
+			</label>
+			<label>
+				Number of layers
+				<input type="range" min="1" max="10" id="num_layers" value="3">
+			</label>
+
+			<button id="draw">Draw</button>
+		</div>
+
+		<p><a id="transcripts">Link to this design</a></p>
+
+		<svg xmlns="http://www.w3.org/2000/svg" id="place" viewBox="0 0 1 1">
+		</svg>
+
+		<script src="thing.js"></script>
+	</body>
+</html>
