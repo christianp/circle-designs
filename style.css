@@ -7,8 +7,17 @@ html {
 	margin: 1em 0;
 }
 .controls label {
-	display: block;
-	margin: 0.5em 0;
+	display: inline-block;
+	margin: 1em;
+}
+
+.controls button {
+	font-size: 2em;
+	margin: 0.5rem;
+}
+
+button#draw {
+	width: 10em;
 }
 
 #transcripts {
@@ -20,3 +29,19 @@ svg {
 	background: hsl(0,0%,50%);
 }
 
+@keyframes fadein {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+.arc {
+	animation: fadein 0.5s;
+}
+
+.fullscreen .controls {
+	display: none;
+}
+.fullscreen body {
+	margin: 0;
+	overflow: hidden;
+}
