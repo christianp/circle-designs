@@ -41,13 +41,14 @@ function circle(g,x,y,r,transcript) {
 }
 
 var svg = document.getElementById('place')
+var design_g = svg.querySelector('.design');
 function draw(transcripts) {
-	svg.innerHTML = '';
+	design_g.innerHTML = '';
 	transcripts.forEach(function(transcript) {
-	var g = createElement('g',{class:'arcs'})
-	g.style['fill'] = transcript.colour;
-	svg.appendChild(g);
-	circle(g,0.5,0.5,0.5,transcript.path);
+		var g = createElement('g',{class:'arcs'})
+		g.style['fill'] = transcript.colour;
+		design_g.appendChild(g);
+		circle(g,0.5,0.5,0.5,transcript.path);
 	});
 	set_blend();
 
@@ -57,6 +58,9 @@ function draw(transcripts) {
 
 function set_link() {
 	document.getElementById('transcripts').href = location.origin+location.pathname+'?'+makeSearchParams(options);
+	var download = document.getElementById('download');
+	download.download = 'circles.svg';
+	download.href = 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg.outerHTML);
 }
 
 var options = {
