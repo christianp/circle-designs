@@ -67,10 +67,19 @@ function draw(transcripts) {
 	set_link();
 }
 
+function choice(list) {
+	var l = list.length;
+	var i = Math.floor(Math.random()*l);
+	return list[i];
+}
 
 function do_queue() {
 	if(draw_queue.length==0) {
 		if((options.auto_generate || fullscreen) && (new Date())-done_time>min_display && Math.random()<prob_regenerate) {
+			if(fullscreen) {
+				options.blend_mode = choice(document.querySelectorAll('#blend_mode option')).value;
+				set_blend();
+			}
 			generate();
 		}
 		return;
@@ -118,6 +127,7 @@ function generate() {
 }
 
 function set_blend() {
+	document.getElementById('blend_mode').value = options.blend_mode;
 	var arcs = svg.querySelectorAll('.arcs');
 	for(var i=0;i<arcs.length;i++) {
 		arcs[i].style['mix-blend-mode'] = options.blend_mode;
